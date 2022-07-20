@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, FormControl, Input, InputLabel } from "@mui/material";
 import { useState } from "react";
 import "./App.css";
 
@@ -9,12 +9,10 @@ function App() {
     "Qazi want to livestream today",
   ]);
   const [input, setInput] = useState("");
-  console.log(input);
 
   const addTodo = (e) => {
     // this will fire off when we click the button!
     e.preventDefault();
-    console.log("I'm working");
     setTodos([...todos, input]);
     setInput(""); // clear up the input after hitting submit
   };
@@ -23,14 +21,13 @@ function App() {
     <div className="App">
       <h1>Hello World!</h1>
       <form>
-        <input
-          type="text"
-          name=""
-          id=""
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
+        <FormControl>
+          <InputLabel>Write a Todo</InputLabel>
+          <Input value={input} onChange={(e) => setInput(e.target.value)} />
+        </FormControl>
+
         <Button
+          disabled={!input}
           type="submit"
           onClick={addTodo}
           variant="contained"
