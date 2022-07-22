@@ -1,11 +1,12 @@
 import { List, ListItem, ListItemText } from "@mui/material";
 import React from "react";
+import "./Todo.css";
 
 const Todo = ({ text }) => {
   return (
-    <List>
+    <List className="todo__list">
       <ListItem>
-        <ListItemText primary="Todo" secondary={text} />
+        <ListItemText primary={text} secondary="Dummy deadline ⏰" />
       </ListItem>
     </List>
   );
