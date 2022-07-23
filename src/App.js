@@ -32,6 +32,11 @@ function App() {
   const addTodo = (e) => {
     // this will fire off when we click the button!
     e.preventDefault();
+
+    db.collection("todos").add({
+      todo: input,
+    });
+
     setTodos([...todos, input]);
     setInput(""); // clear up the input after hitting submit
   };
